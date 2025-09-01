@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>About Me - Johanna's Portfolio</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="images/favicon.png" type="image/png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="Johanna">
+    <meta name="keywords" content="About, Personal, Hobbies, Cat, Partner, Friend, Photography">
+    <meta name="description" content="Get to know more about Johanna, her interests, and the important beings in her life">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/vendor.css">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,40,FILL,GRAD@20,400,1,200&icon_names=code" />
+
+    <style>
+        /* Animaciones personalizadas */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes heartBeat {
+            0% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.1);
+            }
+            50% {
+                transform: scale(1);
+            }
+            75% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes filmRoll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-330%);
+            }
+        }
+
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .pulse-animation {
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .spin-animation {
+            animation: spin 15s linear infinite;
+        }
+
+        .heartbeat-animation {
+            animation: heartBeat 2s infinite;
+        }
+
+        .delay-1 {
+            animation-delay: 0.5s;
+        }
+
+        .delay-2 {
+            animation-delay: 1s;
+        }
+
+        .delay-3 {
+            animation-delay: 1.5s;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .about-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .about-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .cat-paw {
+            position: absolute;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .highlight-text {
+            color: #CB1C8D;
+            font-weight: bold;
+        }
+
+        .emoji-icon {
+            font-size: 2rem;
+            display: inline-block;
+            margin-right: 10px;
+        }
+        
+        .person-img-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid #f8f9fa;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .person-img-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #CB1C8D, #6c63ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .bg-soft-primary {
+            background-color: rgba(203, 28, 141, 0.1);
+        }
+        
+        .photo-instructions {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+        
+        /* Estilos para el carrusel de fotos */
+        .photo-reel-container {
+            position: relative;
+            padding: 40px 0;
+            margin: 60px 0;
+            overflow: hidden;
+        }
+        
+        .photo-reel {
+            display: flex;
+            animation: filmRoll 20s linear infinite;
+            padding: 10px 0;
+        }
+        
+        .photo-reel:hover {
+            animation-play-state: paused;
+        }
+        
+        .photo-reel-item {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 400px;
+            margin: 0 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .photo-reel-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+        
+        .photo-reel-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .photo-reel-item:hover .photo-reel-img {
+            transform: scale(1.1);
+        }
+        
+        .photo-reel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .photo-reel-item:hover .photo-reel-caption {
+            opacity: 1;
+        }
+        
+        .reel-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .reel-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #CB1C8D;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .camera-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: pulse 1s infinite;
+        }
+        
+        @media (max-width: 768px) {
+            .photo-reel-item {
+                width: 250px;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <!-- Los mismos símbolos que en index.html -->
+        <defs>
+            <!-- Front-End Development -->
+            <symbol id="random-1" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 8l-3 4 3 4M17 8l3 4-3 4" />
+                    <path d="M12 16L13 8" />
+                </g>
+            </symbol>
+            <!-- UI/UX Design -->
+            <symbol id="random-2" viewBox="0 0 24 24">
+                <g fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="8" r="5" />
+                    <path d="M7 21c1.5-3 3.5-4 5-4s3.5 1 5 4" />
+                </g>
+            </symbol>
+            <!-- Otros símbolos existentes -->
+            <symbol id="heart" viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M20.16 4.61A6.27 6.27 0 0 0 12 4a6.27 6.27 0 0 0-8.16 9.48l7.45 7.45a1 1 0 0 0 1.42 0l7.45-7.45a6.27 6.27 0 0 0 0-8.87Zm-1.41 7.46L12 18.81l-6.75-6.74a4.28 4.28 0 0 1 3-7.3a4.25 4.25 0 0 1 3 1.25a1 1 0 0 0 1.42 0a4.27 4.27 0 0 1 6 6.05Z">
+                </path>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div class="nav nav-overlay">
+        <div class="nav__content">
+            <ul class="nav__list">
+                <li class="nav__list-item"><a href="index.html" class="hover-target">Home</a></li>
+                <li class="nav__list-item active-nav"><a href="about.html" class="hover-target">About <span></span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-wrap d-flex align-items-center justify-content-between p-3" data-aos="fade">
+            <div class="main-logo">
+                <a href="index.html"><img src="images/main-logo.png" title="Portfo HTML Template"></a>
+            </div>
+
+            <nav id="navbar">
+                <input id="menu-toggle" type="checkbox" />
+                <label class="menu-btn" for="menu-toggle">
+                    <span></span>
+                </label>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de introducción - CON FONDO BLANCO -->
+    <section id="personal-intro" class="padding-large bg-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-3 mb-4" style="color: #CB1C8D;">About Me</h1>
+                    <p class="fs-5 text-dark">I’m Johanna. I like a lot of things: spending time with my family, cats, chocolate, and the color green. I’m an Aquarius. 
+                        One thing I really can’t stand is guava. If you hate it too, we’ll probably get along really well.</p>
+                    <div class="mt-5 heartbeat-animation" style="color: #CB1C8D;">
+                        <svg width="50" height="50" fill="currentColor">
+                            <use xlink:href="#heart"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="col-lg-6 float-animation" data-aos="fade-left">
+                    <img src="images/banner.png" alt="Johanna enjoying life" class="img-fluid rounded-circle shadow">
+                </div>
+            </div>
+        </div>
+        <div class="cat-paw" style="top: 10%; left: 5%;">🐾</div>
+        <div class="cat-paw" style="top: 30%; right: 10%;">🐾</div>
+        <div class="cat-paw" style="bottom: 20%; left: 15%;">🐾</div>
+    </section>
+
+    <!-- Sección de mis pasiones -->
+    <section id="passions" class="padding-large bg-light">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h3 class="section-title display-6">My Passions</h3>
+                <p>These are the little (and not so little) things that make me happy and keep me inspired.</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-card bg-white p-4 text-center hover-lift">
+                        <div class="emoji-icon float-animation">🎭</div>
+                        <h4 class="my-3">Theater</h4>
+                        <p>I really like it, even though I don’t always get the chance to practice. 
+                            I always get excited when I watch a play or take part in something related.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-card bg-white p-4 text-center hover-lift">
+                        <div class="emoji-icon float-animation delay-1">🎀</div>
+                        <h4 class="my-3">Hello Kitty</h4>
+                        <p>I’m a fan of Hello Kitty and Sanrio characters, and my favorite character is Kuromi.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="about-card bg-white p-4 text-center hover-lift">
+                        <div class="emoji-icon float-animation delay-2">📚</div>
+                        <h4 class="my-3">Juan Rulfo</h4>
+                        <p>I love the way he writes, so unique. His style is unlike anyone else’s</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="about-card bg-white p-4 text-center hover-lift">
+                        <div class="emoji-icon float-animation delay-1">🐱</div>
+                        <h4 class="my-3">Cats</h4>
+                        <p>I have a cat who basically runs my house. And yes, I spoil every cat I see.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="about-card bg-white p-4 text-center hover-lift">
+                        <div class="emoji-icon float-animation delay-2">🎮</div>
+                        <h4 class="my-3">Video games</h4>
+                        <p>I have a lot of fun playing Animal Crossing, and Age of Empires.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="about-card bg-white p-4 text-center hover-lift">
+                        <div class="emoji-icon float-animation delay-3">🎨</div>
+                        <h4 class="my-3">Watercolors and crayons</h4>
+                        <p>I like drawing and paying attention to every detail, even if it doesn’t always turn out perfect.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de carrete de fotos -->
+    <section id="photo-reel" class="padding-large bg-white">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="camera-icon">📸</div>
+                <h2 class="reel-title display-5">Pieces of My Life</h2>
+                <p class="fs-5">Little snapshots that mean a lot to me</p>
+            </div>
+            
+            <div class="photo-reel-container" data-aos="fade-up">
+                <div class="photo-reel">
+                    <!-- Foto 1 -->
+                    <div class="photo-reel-item">
+                        <img src="images/1.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 2 -->
+                     <div class="photo-reel-item">
+                        <img src="images/2.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 3 -->
+                     <div class="photo-reel-item">
+                        <img src="images/3.png"
+                            alt="Photo item"class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 4 -->
+                     <div class="photo-reel-item">
+                        <img src="images/4.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 5 -->
+                     <div class="photo-reel-item">
+                        <img src="images/5.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 6 -->
+                     <div class="photo-reel-item">
+                        <img src="images/6.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 7 -->
+                     <div class="photo-reel-item">
+                        <img src="images/7.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 8 -->
+                     <div class="photo-reel-item">
+                        <img src="images/8.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                     <!-- Foto 9 -->
+                     <div class="photo-reel-item">
+                        <img src="images/9.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 10 -->
+                     <div class="photo-reel-item">
+                        <img src="images/10.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 11 -->
+                     <div class="photo-reel-item">
+                        <img src="images/11.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 12 -->
+                     <div class="photo-reel-item">
+                        <img src="images/12.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 13 -->
+                     <div class="photo-reel-item">
+                        <img src="images/13.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 14 -->
+                     <div class="photo-reel-item">
+                        <img src="images/14.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Duplicar las fotos para efecto de carrete continuo -->
+
+                     <!-- Foto 1 -->
+                    <div class="photo-reel-item">
+                        <img src="images/1.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 2 -->
+                     <div class="photo-reel-item">
+                        <img src="images/2.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 3 -->
+                     <div class="photo-reel-item">
+                        <img src="images/3.png"
+                            alt="Photo item"class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 4 -->
+                     <div class="photo-reel-item">
+                        <img src="images/4.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 5 -->
+                     <div class="photo-reel-item">
+                        <img src="images/5.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 6 -->
+                     <div class="photo-reel-item">
+                        <img src="images/6.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 7 -->
+                     <div class="photo-reel-item">
+                        <img src="images/7.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+                    
+                    <!-- Foto 8 -->
+                     <div class="photo-reel-item">
+                        <img src="images/8.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                     <!-- Foto 9 -->
+                     <div class="photo-reel-item">
+                        <img src="images/9.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 10 -->
+                     <div class="photo-reel-item">
+                        <img src="images/10.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 11 -->
+                     <div class="photo-reel-item">
+                        <img src="images/11.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 12 -->
+                     <div class="photo-reel-item">
+                        <img src="images/12.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 13 -->
+                     <div class="photo-reel-item">
+                        <img src="images/13.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+                    <!-- Foto 14 -->
+                     <div class="photo-reel-item">
+                        <img src="images/14.png"
+                             alt="Photo item" class="photo-reel-img">
+                    </div>
+
+              
+            
+            <div class="text-center mt-5" data-aos="fade-up">
+                <p class="text-muted">Hover on the photos to stop the carousel</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de personas importantes -->
+    <section id="important-people" class="padding-large bg-white">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <h3 class="section-title display-6">The people who make every day worth it</h3>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6 mb-5" data-aos="fade-right">
+                    <div class="text-center mb-4">
+                        <div class="person-img-container">
+                            <div class="person-img-placeholder"> <img src="images/about-item-couple.jpg" alt="Mi pareja" class="img-fluid">
+                            </div>
+                            <!-- Reemplaza el div de arriba con esta línea cuando tengas la foto -->
+                            <!-- <img src="images/pareja.jpg" alt="Mi pareja" class="img-fluid"> -->
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="flex-grow-1 ms-4">
+                            <h3>My Partner</h3>
+                            <p>My partner is my biggest inspiration and the smartest, most amazing person I know. 
+                                He helps me with any project.</p>
+                            <p class="fst-italic highlight-text">"He’s the one who reminds me to take breaks and supports me whenever I need it"</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-5" data-aos="fade-left">
+                    <div class="text-center mb-4">
+                        <div class="person-img-container">
+                            <div class="person-img-placeholder"><img src="images/about-item-friend.jpg" alt="Mi amiga" class="img-fluid" style="width: 100%; height: 300px; object-fit: cover; object-position: center;">
+                            
+                            </div>
+                            <!-- Reemplaza el div de arriba con esta línea cuando tengas la foto -->
+                            <!-- <img src="images/amiga.jpg" alt="Mi mejor amiga" class="img-fluid"> -->
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-start">
+                        <div class="flex-grow-1 ms-4">
+                            <h3>My Best Friend</h3>
+                            <p>With her, I never get bored. She has a humor that matches mine perfectly. 
+                                She’s taught me a lot and is always there to support me without judging</p>
+                            <p class="fst-italic highlight-text">"We can always count on each other and be there when one of us needs support"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resto del contenido (sección de gato, filosofía, contacto) -->
+    <!-- ... -->
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/plugins.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+    <script>
+        // Animación adicional para elementos cuando están en viewport
+        document.addEventListener('DOMContentLoaded', function () {
+            // Agregar animación de aparición a todos los elementos con data-aos
+            const animatedElements = document.querySelectorAll('[data-aos]');
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+
+            // Simular la inicialización de AOS
+            function checkScroll() {
+                animatedElements.forEach(el => {
+                    const position = el.getBoundingClientRect();
+                    
+                    // Si el elemento está en el viewport
+                    if (position.top < window.innerHeight * 0.9) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+
+            // Verificar al cargar y al hacer scroll
+            window.addEventListener('scroll', checkScroll);
+            checkScroll(); // Verificar al cargar la página
+        });
+    </script>
+
+</body>
+
+</html>
